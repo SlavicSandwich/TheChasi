@@ -1,10 +1,10 @@
-from designs.stopwatch import *
+from designs.stopwatchdes import *
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QTimer
 
 
-class Stopwatch(QMainWindow, Ui_Form):
+class Stopwatch(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)

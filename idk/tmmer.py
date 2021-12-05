@@ -141,3 +141,4 @@ if __name__ == '__main__':
     timer.timeout.connect(beep)
     timer.show()
     sys.exit(app.exec_())
+
