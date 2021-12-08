@@ -65,6 +65,9 @@
         <property name="layoutDirection">
          <enum>Qt::LeftToRight</enum>
         </property>
+        <property name="digitCount">
+         <number>10</number>
+        </property>
        </widget>
       </item>
       <item>

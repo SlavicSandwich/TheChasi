@@ -1,5 +1,5 @@
-from PyQt5 import QtCore, QtWidgets
-from designs import timerdes, stopwatchdes
+from PyQt5 import QtCore, QtWidgets, QtGui
+from designs import timerdes, stopwatchdes, workinprogressdes
 from PyQt5.QtCore import *
 
 
@@ -9,6 +9,83 @@ class PageWindow(QtWidgets.QMainWindow):
     def goto(self, name):
         self.gotoSignal.emit(name)
 
+class Alarm(PageWindow, workinprogressdes.Ui_MainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.Alarm_switch.setDisabled(True)
+        self.Alarm_switch.setStyleSheet("background-color: #A3C1DA; color: red;")
+        qmovie1 = QtGui.QMovie('data/letter-b-dancing.gif')
+        qmovie2 = QtGui.QMovie("data/letter-r.gif")
+        qmovie3 = QtGui.QMovie('data/letter-u.gif')
+        qmovie4 = QtGui.QMovie('data/letter-h.gif')
+
+        self.label_2.setScaledContents(True)
+        self.label_3.setScaledContents(True)
+        self.label_4.setScaledContents(True)
+        self.label_5.setScaledContents(True)
+
+        self.label_2.setMovie(qmovie1)
+        self.label_3.setMovie(qmovie2)
+        self.label_4.setMovie(qmovie3)
+        self.label_5.setMovie(qmovie4)
+
+        qmovie1.start()
+        qmovie2.start()
+        qmovie3.start()
+        qmovie4.start()
+
+        self.timer_switch.clicked.connect(self.gotoTimer)
+        self.stopwatch_switch.clicked.connect(self.gotoStopwatch)
+        self.worldtime_switch.clicked.connect(self.gotoWorldTime)
+
+    def gotoWorldTime(self):
+        self.goto('worldtime')
+
+    def gotoStopwatch(self):
+        self.goto('stopwatch')
+
+    def gotoTimer(self):
+        self.goto('timer')
+
+class WorldTime(PageWindow, workinprogressdes.Ui_MainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.worldtime_switch.setDisabled(True)
+        self.worldtime_switch.setStyleSheet("background-color: #A3C1DA; color: red;")
+        qmovie1 = QtGui.QMovie('data/letter-b-dancing.gif')
+        qmovie2 = QtGui.QMovie("data/letter-r.gif")
+        qmovie3 = QtGui.QMovie('data/letter-u.gif')
+        qmovie4 = QtGui.QMovie('data/letter-h.gif')
+
+        self.label_2.setScaledContents(True)
+        self.label_3.setScaledContents(True)
+        self.label_4.setScaledContents(True)
+        self.label_5.setScaledContents(True)
+
+        self.label_2.setMovie(qmovie1)
+        self.label_3.setMovie(qmovie2)
+        self.label_4.setMovie(qmovie3)
+        self.label_5.setMovie(qmovie4)
+
+        qmovie1.start()
+        qmovie2.start()
+        qmovie3.start()
+        qmovie4.start()
+
+        self.timer_switch.clicked.connect(self.gotoTimer)
+        self.stopwatch_switch.clicked.connect(self.gotoStopwatch)
+        self.Alarm_switch.clicked.connect(self.gotoAlarm)
+
+    def gotoStopwatch(self):
+        self.goto('stopwatch')
+
+    def gotoTimer(self):
+        self.goto('timer')
+
+    def gotoAlarm(self):
+        self.goto('alarm')
 
 class Timer(PageWindow, timerdes.Ui_MainWindow):
     def __init__(self):
@@ -26,10 +103,18 @@ class Timer(PageWindow, timerdes.Ui_MainWindow):
         self.pause.clicked.connect(self.pausecountdown)
 
         self.pushbutton.clicked.connect(self.button)
-        self.stopwatch_switch.clicked.connect(self.gotoSearch)
+        self.stopwatch_switch.clicked.connect(self.gotoStopwatch)
+        self.alarm_switch.clicked.connect(self.gotoAlarm)
+        self.worldtime_switch.clicked.connect(self.gotoWorldTime)
 
-    def gotoSearch(self):
-        self.goto('search')
+    def gotoWorldTime(self):
+        self.goto('worldtime')
+
+    def gotoStopwatch(self):
+        self.goto('stopwatch')
+
+    def gotoAlarm(self):
+        self.goto('alarm')
 
     def button(self):
         if self.pushbutton.text() == 'Старт':
@@ -103,10 +188,18 @@ class Stopwatch(PageWindow, stopwatchdes.Ui_MainWindow):
         self.backwardsstart.clicked.connect(self.timeddown.start)
         self.backwardsstopbutton.clicked.connect(self.timeddown.stop)
 
-        self.time_switch.clicked.connect(self.gotoSearch)
+        self.Alarm_switch.clicked.connect(self.gotoAlarm)
+        self.time_switch.clicked.connect(self.gotoTimer)
+        self.worldtime_switch.clicked.connect(self.gotoWorldTime)
 
-    def gotoSearch(self):
-        self.goto('main')
+    def gotoWorldTime(self):
+        self.goto('worldtime')
+
+    def gotoTimer(self):
+        self.goto('timer')
+
+    def gotoAlarm(self):
+        self.goto('alarm')
 
     def set_beginning(self):
         self.time[0] = self.beginthing.value()
@@ -148,15 +241,17 @@ class Stopwatch(PageWindow, stopwatchdes.Ui_MainWindow):
 class Window(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setMinimumSize(300, 400)
+        self.setMinimumSize(650, 650)
 
         self.stacked_widget = QtWidgets.QStackedWidget()
         self.setCentralWidget(self.stacked_widget)
 
         self.m_pages = {}
 
-        self.register(Timer(), "main")
-        self.register(Stopwatch(), "search")
+        self.register(Timer(), "timer")
+        self.register(Stopwatch(), "stopwatch")
+        self.register(Alarm(), 'alarm')
+        self.register(WorldTime(), 'worldtime')
 
         self.goto("main")
 

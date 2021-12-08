@@ -40,6 +40,7 @@ class Ui_MainWindow(object):
         self.lcdNumber = QtWidgets.QLCDNumber(self.centralwidget)
         self.lcdNumber.setEnabled(True)
         self.lcdNumber.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.lcdNumber.setDigitCount(10)
         self.lcdNumber.setObjectName("lcdNumber")
         self.verticalLayout_2.addWidget(self.lcdNumber)
         self.beginthing = QtWidgets.QSpinBox(self.centralwidget)
