@@ -2,6 +2,29 @@ from PyQt5 import QtCore, QtWidgets, QtGui
 from designs import timerdes, stopwatchdes, workinprogressdes
 from PyQt5.QtCore import *
 
+#################Delet this
+class Majima(QtWidgets.QMainWindow):                           # <===
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Majima")
+        self.label = QtWidgets.QLabel(self)
+        self.pixmax = QtGui.QPixmap('data/majima bruh.gif')
+        self.label.setPixmap(self.pixmax)
+        self.label.resize(self.pixmax.width(), self.pixmax.height())
+        self.setFixedSize(self.pixmax.width(), self.pixmax.height())
+
+class Kiryu(QtWidgets.QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Kiryu")
+        self.label = QtWidgets.QLabel(self)
+        self.pixmax = QtGui.QPixmap('data/kiryu bruh.jpg')
+        self.label.setPixmap(self.pixmax)
+        self.label.resize(self.pixmax.width(), self.pixmax.height())
+        self.setFixedSize(self.pixmax.width(), self.pixmax.height())
+
+######################
+
 
 class PageWindow(QtWidgets.QMainWindow):
     gotoSignal = QtCore.pyqtSignal(str)
@@ -39,6 +62,7 @@ class Alarm(PageWindow, workinprogressdes.Ui_MainWindow):
         self.stopwatch_switch.clicked.connect(self.gotoStopwatch)
         self.worldtime_switch.clicked.connect(self.gotoWorldTime)
 
+
     def gotoWorldTime(self):
         self.goto('worldtime')
 
@@ -58,6 +82,7 @@ class WorldTime(PageWindow, workinprogressdes.Ui_MainWindow):
         qmovie2 = QtGui.QMovie("data/letter-r.gif")
         qmovie3 = QtGui.QMovie('data/letter-u.gif')
         qmovie4 = QtGui.QMovie('data/letter-h.gif')
+
 
         self.label_2.setScaledContents(True)
         self.label_3.setScaledContents(True)
@@ -255,6 +280,16 @@ class Window(QtWidgets.QMainWindow):
 
         self.goto("main")
 
+#############
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_M:
+            self.Dude = Majima()
+            self.Dude.show()
+
+        if event.key() == Qt.Key_K:
+            self.Dude = Kiryu()
+            self.Dude.show()
+#############Delet this
     def register(self, widget, name):
         self.m_pages[name] = widget
         self.stacked_widget.addWidget(widget)
