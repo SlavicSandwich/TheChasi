@@ -15,12 +15,72 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="5" column="0">
+     <widget class="QPushButton" name="alarm_switch">
+      <property name="text">
+       <string>Будильник</string>
+      </property>
+     </widget>
+    </item>
     <item row="2" column="0" colspan="4">
      <widget class="QPushButton" name="pushbutton">
       <property name="text">
        <string>Старт</string>
       </property>
      </widget>
+    </item>
+    <item row="5" column="3">
+     <widget class="QPushButton" name="timer_switch">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #A3C1DA; color: red;</string>
+      </property>
+      <property name="text">
+       <string>Таймер</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QPushButton" name="worldtime_switch">
+      <property name="text">
+       <string>Мировое время</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QPushButton" name="stopwatch_switch">
+      <property name="text">
+       <string>Секундомер</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="4">
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="4" column="0" colspan="4">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
     </item>
     <item row="0" column="0" colspan="4">
      <layout class="QHBoxLayout" name="horizontalLayout">
@@ -98,66 +158,6 @@
       </item>
      </layout>
     </item>
-    <item row="5" column="0">
-     <widget class="QPushButton" name="alarm_switch">
-      <property name="text">
-       <string>Будильник</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="3">
-     <widget class="QPushButton" name="timer_switch">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: #A3C1DA; color: red;</string>
-      </property>
-      <property name="text">
-       <string>Таймер</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QPushButton" name="worldtime_switch">
-      <property name="text">
-       <string>Мировое время</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="2">
-     <widget class="QPushButton" name="stopwatch_switch">
-      <property name="text">
-       <string>Секундомер</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0" colspan="4">
-     <spacer name="verticalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="4" column="0" colspan="4">
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
     <item row="3" column="0" colspan="4">
      <widget class="QPushButton" name="pause">
       <property name="enabled">
@@ -165,6 +165,13 @@
       </property>
       <property name="text">
        <string>Пауза</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="3">
+     <widget class="QPushButton" name="AssignSound">
+      <property name="text">
+       <string>AssignSound</string>
       </property>
      </widget>
     </item>

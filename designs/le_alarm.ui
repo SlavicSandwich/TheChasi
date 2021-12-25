@@ -33,7 +33,7 @@
      </widget>
     </item>
     <item row="2" column="0">
-     <widget class="QPushButton" name="alarm_switch">
+     <widget class="QPushButton" name="Alarm_switch">
       <property name="text">
        <string>Будильник</string>
       </property>
@@ -50,6 +50,13 @@
      <widget class="QPushButton" name="worldtime_switch">
       <property name="text">
        <string>Мировое время</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="AssignSound">
+      <property name="text">
+       <string>Assign Melody</string>
       </property>
      </widget>
     </item>

@@ -83,7 +83,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.worldtime_switch.setText(_translate("MainWindow", "Мировое время"))
+        self.worldtime_switch.setText(_translate("MainWindow", "Часы"))
         self.Alarm_switch.setText(_translate("MainWindow", "Будильник"))
         self.stopwatch_switch.setText(_translate("MainWindow", "Секундомер"))
         self.time_switch.setText(_translate("MainWindow", "Таймер"))

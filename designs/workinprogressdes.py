@@ -78,6 +78,6 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "TextLabel"))
         self.label_5.setText(_translate("MainWindow", "TextLabel"))
         self.Alarm_switch.setText(_translate("MainWindow", "Будильник"))
-        self.worldtime_switch.setText(_translate("MainWindow", "Мировое время"))
+        self.worldtime_switch.setText(_translate("MainWindow", "Часы"))
         self.stopwatch_switch.setText(_translate("MainWindow", "Секундомер"))
         self.timer_switch.setText(_translate("MainWindow", "Таймер"))
